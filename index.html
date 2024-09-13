@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <header>
+      <div class="header_container">
+        <h1>Отправить заявку на участие в семинаре</h1>
+        <p>Организаторы свяжутся с вами для подтверждения записи.</p>
+        <p>Участие в семинаре <span>бесплатное</span>.</p>
+      </div>
+    </header>
+    <main>
+      <div class="main_container">
+        <form action="">
+            <div>
+                <label for="YourName">Ваше имя:</label>
+          <input type="text" id="YourName" placeholder="Иванов Алексей" />
+            </div>
+            <div>
+                <label for="contact_email">Контактный email:</label>
+                <input type="email" placeholder="example@gmail.com"/>
+            </div>
+          <div>
+            <label for="options">Выберите опцию:</label>
+            <select name="options" id="options">
+              <option value="" disabled selected>Выбрать</option>
+              <option value="option1">Опция 1</option>
+              <option value="option2">Опция 2</option>
+              <option value="option3">Опция 3</option>
+              <option value="option4">Опция 4</option>
+            </select>
+          </div>
+         
+          <section>
+            <p>Все поля обязательны для заполнения.</p>
+            <p>Отправляя заявку, вы соглашаетесь с договором публичной оферты и политикой обработки данных.</p>
+          </section>
+          <input type="submit" value="Отправить">
+        </form>
+      </div>
+    </main>
+    <footer>
+      <div class="footer_footer"></div>
+    </footer>
+  </body>
+</html>

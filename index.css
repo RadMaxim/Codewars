@@ -1,0 +1,86 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+h1, p, span {
+  font-family: "Courier New", Courier, monospace;
+  text-wrap: balance;
+}
+
+body {
+  display: grid;
+  justify-content: center;
+  grid-template-rows: 30vh 70vh;
+  grid-template-columns: 60vw;
+  grid-template-areas: "header" "main";
+}
+body header,
+body main,
+body footer {
+  border: 0.1px solid black;
+}
+body header {
+  grid-area: header;
+  text-align: start;
+}
+body header .header_container {
+  padding-top: 50px;
+  width: 90%;
+}
+body header .header_container h1 {
+  margin-bottom: 20px;
+  font-size: 32px;
+}
+body header .header_container p {
+  font-size: 14px;
+}
+body header .header_container span {
+  text-decoration: underline;
+  font-size: 14px;
+}
+body main {
+  grid-area: main;
+}
+body main form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+body main form div {
+  display: flex;
+  flex-direction: column;
+}
+body main form div input {
+  text-indent: 20px;
+  height: 40px;
+}
+body main form div input::-moz-placeholder {
+  color: rgb(120, 120, 120);
+}
+body main form div input::placeholder {
+  color: rgb(120, 120, 120);
+}
+body footer {
+  grid-area: footer;
+}
+
+@media (max-width: 767px) {
+  h1 {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+  p {
+    font-size: 12px;
+  }
+  body {
+    grid-template-columns: 95vw;
+    grid-template-rows: 30vh 70vh;
+  }
+  body header .header_container {
+    padding-top: 10px;
+    width: 95%;
+    text-align: center;
+  }
+}/*# sourceMappingURL=index.css.map */
