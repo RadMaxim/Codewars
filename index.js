@@ -14,11 +14,9 @@ document.getElementById("form_control").addEventListener("submit", (e) => {
  })();
  emailjs.send("service_n73y16p", "template_5xy5ozl", templateParams).then(
     (res)=> {
-      console.log("SUCCESS!", res.status, res.text);
-      alert("Email sent successfully!");
+      alert("Ваша заявка успешно отправлена и находится в обработке. Ожидайте email с подтверждением бронирования.");
     },
     (err)=> {
-      console.log("FAILED...", err);
       alert("Error sending email.");
     },
   );
