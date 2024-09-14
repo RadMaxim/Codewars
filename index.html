@@ -16,36 +16,54 @@
     </header>
     <main>
       <div class="main_container">
-        <form action="">
-            <div>
-                <label for="YourName">Ваше имя:</label>
-          <input type="text" id="YourName" placeholder="Иванов Алексей" />
-            </div>
-            <div>
-                <label for="contact_email">Контактный email:</label>
-                <input type="email" placeholder="example@gmail.com"/>
-            </div>
+        <form id="form_control">
           <div>
-            <label for="options">Выберите опцию:</label>
-            <select name="options" id="options">
+            <label for="YourName">Ваше имя:</label>
+            <input
+              required
+              minlength="2"
+              type="text"
+              id="YourName"
+              placeholder="Иванов Алексей"
+            />
+          </div>
+          <hr />
+          <div>
+            <label for="contact_email">Контактный email:</label>
+            <input
+              id="contact_email"
+              required
+              minlength="11"
+              pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+              type="email"
+              placeholder="example@gmail.com"
+            />
+          </div>
+          <hr />
+          <div>
+            <label for="choice">Интересующий семинар:</label>
+            <select name="choice" id="choices">
               <option value="" disabled selected>Выбрать</option>
-              <option value="option1">Опция 1</option>
-              <option value="option2">Опция 2</option>
-              <option value="option3">Опция 3</option>
-              <option value="option4">Опция 4</option>
+              <option value="Frontend developer">Frontend developer</option>
+              <option value="Backend developer">Backend developer</option>
+              <option value="Full-stack developer">Full-stack developer</option>
             </select>
           </div>
-         
+
           <section>
             <p>Все поля обязательны для заполнения.</p>
-            <p>Отправляя заявку, вы соглашаетесь с договором публичной оферты и политикой обработки данных.</p>
+            <p>
+              Отправляя заявку, вы соглашаетесь с договором публичной оферты и
+              политикой обработки данных.
+            </p>
           </section>
-          <input type="submit" value="Отправить">
+          <input type="submit" value="Отправить" />
         </form>
       </div>
     </main>
-    <footer>
-      <div class="footer_footer"></div>
-    </footer>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script src="./index.js"></script>
   </body>
 </html>

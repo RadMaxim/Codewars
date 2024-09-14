@@ -4,26 +4,39 @@
   margin: 0;
 }
 
-h1, p, span {
-  font-family: "Courier New", Courier, monospace;
+@font-face {
+  font-family: font1;
+  src: url("./fonts/Caveat/Caveat-VariableFont_wght.ttf");
+}
+h1,
+p,
+span,
+label {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  font-family: "font1", Courier, monospace;
   text-wrap: balance;
 }
 
 body {
+  background: linear-gradient(
+    0.1turn,
+    rgba(78, 64, 64, 0.8),
+    rgba(248, 252, 11, 0.8)
+  );
   display: grid;
   justify-content: center;
-  grid-template-rows: 30vh 70vh;
+  grid-template-rows: 20vh 80vh;
   grid-template-columns: 60vw;
   grid-template-areas: "header" "main";
 }
-body header,
-body main,
-body footer {
-  border: 0.1px solid black;
-}
 body header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   grid-area: header;
-  text-align: start;
+  text-align: center;
 }
 body header .header_container {
   padding-top: 50px;
@@ -34,32 +47,49 @@ body header .header_container h1 {
   font-size: 32px;
 }
 body header .header_container p {
-  font-size: 14px;
+  font-size: 16px;
 }
 body header .header_container span {
   text-decoration: underline;
-  font-size: 14px;
+  font-size: 16px;
 }
 body main {
   grid-area: main;
 }
-body main form {
+body main div {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  text-align: center;
+  align-items: center;
+}
+body main form {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 body main form div {
   display: flex;
   flex-direction: column;
 }
-body main form div input {
+body main form div label {
+  font-size: 30px;
+}
+body main form div input,
+body main form div select {
+  width: 100%;
   text-indent: 20px;
   height: 40px;
+  outline: none;
+  border: none;
+  border-radius: 10px;
 }
-body main form div input::-moz-placeholder {
+body main form div input::-moz-placeholder,
+body main form div select::-moz-placeholder {
   color: rgb(120, 120, 120);
 }
-body main form div input::placeholder {
+body main form div input::placeholder,
+body main form div select::placeholder {
   color: rgb(120, 120, 120);
 }
 body footer {
@@ -76,11 +106,40 @@ body footer {
   }
   body {
     grid-template-columns: 95vw;
-    grid-template-rows: 30vh 70vh;
+    grid-template-rows: 20vh 80vh;
   }
   body header .header_container {
     padding-top: 10px;
     width: 95%;
     text-align: center;
   }
-}/*# sourceMappingURL=index.css.map */
+  body main form {
+    width: 90%;
+  }
+}
+input[type="submit"] {
+  background: rgba(248, 252, 11, 0.8);
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  height: 40px;
+  position: relative;
+}
+input[type="submit"]:hover {
+  background: rgba(248, 252, 11, 0.9);
+}
+
+input:invalid {
+  border: 2px solid red;
+}
+
+input:valid {
+  border: 2px solid green;
+}
+
+section {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  padding: 10px;
+} /*# sourceMappingURL=index.css.map */

@@ -3,71 +3,91 @@
   padding: 0;
   margin: 0;
 }
-
-h1, p,span{
-    
-    font-family: 'Courier New', Courier, monospace;
-    text-wrap: balance;
-
+@font-face {
+  font-family: font1;
+  src: url("./fonts/Caveat/Caveat-VariableFont_wght.ttf");
 }
-@mixin positionElement(){
-    display: flex;
-    flex-direction: column;
+h1,
+p,
+span,
+label {
+  user-select: none;
+  font-family: "font1", Courier, monospace;
+  text-wrap: balance;
+}
+@mixin positionElement() {
+  display: flex;
+  flex-direction: column;
 }
 $wColumn: 60vw;
 @mixin borderElement() {
   border: 0.1px solid black;
 }
 body {
+  background: linear-gradient(
+    0.1turn,
+    rgba(78, 64, 64, 0.8),
+    rgba(248, 252, 11, 0.8)
+  );
   display: grid;
   justify-content: center;
-  grid-template-rows: 30vh 70vh;
+  grid-template-rows: 20vh 80vh;
   grid-template-columns: $wColumn;
   grid-template-areas: "header" "main";
-  header,
-  main,
-  footer {
-    @include borderElement();
-  }
+
   header {
+    @include positionElement();
+    align-items: center;
     grid-area: header;
-    text-align: start;
-    .header_container{
-        padding-top: 50px;
-        width: 90%;
-       
-        h1{
-            margin-bottom: 20px;
-            font-size: 32px;
-        }
-        p{
-            font-size: 14px;
-        }
-        span{
-            text-decoration: underline;
-            font-size: 14px;
-        }
+    text-align: center;
+    .header_container {
+      padding-top: 50px;
+      width: 90%;
+
+      h1 {
+        margin-bottom: 20px;
+        font-size: 32px;
+      }
+      p {
+        font-size: 16px;
+      }
+      span {
+        text-decoration: underline;
+        font-size: 16px;
+      }
     }
   }
   main {
     grid-area: main;
-    form{
-
-       @include positionElement();
-        gap: 20px;
-        div{
-            @include positionElement();
-            input{
-                text-indent: 20px;
-                height: 40px;
-                &::placeholder{
-                    color: rgb(120, 120, 120);
-                  
-                }
-            }
-        }
+    div {
+      @include positionElement();
+      text-align: center;
+      align-items: center;
     }
-   
+
+    form {
+      width: 80%;
+      @include positionElement();
+      gap: 30px;
+      div {
+        @include positionElement();
+        label {
+          font-size: 30px;
+        }
+        input,
+        select {
+          width: 100%;
+          text-indent: 20px;
+          height: 40px;
+          outline: none;
+          border: none;
+          border-radius: 10px;
+          &::placeholder {
+            color: rgb(120, 120, 120);
+          }
+        }
+      }
+    }
   }
   footer {
     grid-area: footer;
@@ -75,22 +95,51 @@ body {
 }
 @media (max-width: 767px) {
   $wColumn: 95vw;
-  h1{
+  h1 {
     font-size: 24px;
     margin-bottom: 15px;
   }
-  p{
+  p {
     font-size: 12px;
   }
   body {
     grid-template-columns: $wColumn;
-    grid-template-rows: 30vh 70vh;
-    header{
-        .header_container{
-            padding-top: 10px;
-            width: 95%;
-            text-align:center;
-        }
+    grid-template-rows: 20vh 80vh;
+    header {
+      .header_container {
+        padding-top: 10px;
+        width: 95%;
+        text-align: center;
+      }
+    }
+    main {
+      form {
+        width: 90%;
+      }
     }
   }
+}
+input[type="submit"] {
+  background: rgba(248, 252, 11, 0.8);
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  height: 40px;
+  position: relative;
+  &:hover {
+    background: rgba(248, 252, 11, 0.9);
+  }
+}
+
+input:invalid {
+  border: 2px solid red;
+}
+input:valid {
+  border: 2px solid green;
+}
+section {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  padding: 10px;
 }
