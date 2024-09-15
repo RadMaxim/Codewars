@@ -7,6 +7,26 @@
   font-family: font1;
   src: url("./fonts/Caveat/Caveat-VariableFont_wght.ttf");
 }
+input, select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+body {
+  display: -ms-grid;
+  background: -webkit-linear-gradient(0.25turn, rgba(78, 64, 64, 0.8), rgba(248, 252, 11, 0.8)); /* Safari 5.1 - 6.0 */
+  background: -moz-linear-gradient(0.25turn, rgba(78, 64, 64, 0.8), rgba(248, 252, 11, 0.8)); /* FF 3.6 - 15 */
+  background: -o-linear-gradient(0.25turn, rgba(78, 64, 64, 0.8), rgba(248, 252, 11, 0.8)); /* Opera 11.1 - 12.0 */
+  
+}
+
+header, main {
+  display: -webkit-box; 
+  display: -moz-box; 
+  display: -ms-flexbox; 
+  display: -webkit-flex; 
+}
+
 h1,
 p,
 span,
@@ -25,13 +45,14 @@ $wColumn: 60vw;
 }
 body {
   background: linear-gradient(
-    0.1turn,
+    0.25turn,
     rgba(78, 64, 64, 0.8),
     rgba(248, 252, 11, 0.8)
   );
+  background-size: cover;
   display: grid;
   justify-content: center;
-  grid-template-rows: 20vh 80vh;
+  grid-template-rows: 25vh 75vh;
   grid-template-columns: $wColumn;
   grid-template-areas: "header" "main";
 
@@ -58,6 +79,8 @@ body {
     }
   }
   main {
+    display: flex;
+    justify-content: center;
     grid-area: main;
     div {
       @include positionElement();
@@ -68,7 +91,7 @@ body {
     form {
       width: 80%;
       @include positionElement();
-      gap: 30px;
+      gap: 20px;
       div {
         @include positionElement();
         label {
@@ -104,7 +127,7 @@ body {
   }
   body {
     grid-template-columns: $wColumn;
-    grid-template-rows: 20vh 80vh;
+    grid-template-rows: 200px 600px;
     header {
       .header_container {
         padding-top: 10px;

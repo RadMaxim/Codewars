@@ -8,26 +8,38 @@
   font-family: font1;
   src: url("./fonts/Caveat/Caveat-VariableFont_wght.ttf");
 }
+input, select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+body {
+  display: -ms-grid; /* Safari 5.1 - 6.0 */ /* FF 3.6 - 15 */
+  background: -o-linear-gradient(0.25turn, rgba(78, 64, 64, 0.8), rgba(248, 252, 11, 0.8)); /* Opera 11.1 - 12.0 */
+}
+
+header, main {
+  display: -webkit-flex;
+}
+
 h1,
 p,
 span,
 label {
   -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   font-family: "font1", Courier, monospace;
   text-wrap: balance;
 }
 
 body {
-  background: linear-gradient(
-    0.1turn,
-    rgba(78, 64, 64, 0.8),
-    rgba(248, 252, 11, 0.8)
-  );
+  background: linear-gradient(0.25turn, rgba(78, 64, 64, 0.8), rgba(248, 252, 11, 0.8));
+  background-size: cover;
   display: grid;
   justify-content: center;
-  grid-template-rows: 20vh 80vh;
+  grid-template-rows: 25vh 75vh;
   grid-template-columns: 60vw;
   grid-template-areas: "header" "main";
 }
@@ -54,6 +66,8 @@ body header .header_container span {
   font-size: 16px;
 }
 body main {
+  display: flex;
+  justify-content: center;
   grid-area: main;
 }
 body main div {
@@ -66,7 +80,7 @@ body main form {
   width: 80%;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 20px;
 }
 body main form div {
   display: flex;
@@ -84,8 +98,7 @@ body main form div select {
   border: none;
   border-radius: 10px;
 }
-body main form div input::-moz-placeholder,
-body main form div select::-moz-placeholder {
+body main form div input::-moz-placeholder, body main form div select::-moz-placeholder {
   color: rgb(120, 120, 120);
 }
 body main form div input::placeholder,
@@ -106,7 +119,7 @@ body footer {
   }
   body {
     grid-template-columns: 95vw;
-    grid-template-rows: 20vh 80vh;
+    grid-template-rows: 200px 600px;
   }
   body header .header_container {
     padding-top: 10px;
@@ -117,7 +130,7 @@ body footer {
     width: 90%;
   }
 }
-input[type="submit"] {
+input[type=submit] {
   background: rgba(248, 252, 11, 0.8);
   cursor: pointer;
   outline: none;
@@ -126,7 +139,7 @@ input[type="submit"] {
   height: 40px;
   position: relative;
 }
-input[type="submit"]:hover {
+input[type=submit]:hover {
   background: rgba(248, 252, 11, 0.9);
 }
 
@@ -142,4 +155,4 @@ section {
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 10px;
   padding: 10px;
-} /*# sourceMappingURL=index.css.map */
+}/*# sourceMappingURL=index.css.map */

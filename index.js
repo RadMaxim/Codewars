@@ -1,5 +1,6 @@
 document.getElementById("form_control").addEventListener("submit", (e) => {
   e.preventDefault();
+
   const templateParams = {
     to_name: document.getElementById("YourName").value,
     to: document.getElementById("contact_email").value,
