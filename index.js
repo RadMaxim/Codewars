@@ -1,24 +1,50 @@
-document.getElementById("form_control").addEventListener("submit", (e) => {
-  e.preventDefault();
+function digitalRoot(n) {
+  let sum = [...String(n)].reduce((buf, elem)=>buf+=Number(elem),0)
+  if (sum<10) {
+      return sum
+  }
+  return digitalRoot(sum)
+}
+// digitalRoot("12345");
 
-  const templateParams = {
-    to_name: document.getElementById("YourName").value,
-    to: document.getElementById("contact_email").value,
-    message:document.getElementById("choices").value
-   
-  };
-  
-  (function(){
-    emailjs.init({
-      publicKey: "adXZgWB0sVTEBl3EE",
-    });
- })();
- emailjs.send("service_n73y16p", "template_5xy5ozl", templateParams).then(
-    (res)=> {
-      alert("Ваша заявка успешно отправлена и находится в обработке. Ожидайте email с подтверждением бронирования.");
-    },
-    (err)=> {
-      alert("Error sending email.");
-    },
-  );
-});
+
+function isIsogram(str){
+  str = String(str).toLowerCase()
+  for (const key of str) {
+     
+      console.log(String(str).split(key));
+      
+     if (String(str).split(key).length>=3) {
+
+      
+          return false
+     }
+  }
+  return true
+}
+//   console.log(isIsogram("moOse"));
+
+function duplicateCount(text){
+  let str = String(text).toLowerCase()
+  let obj  = {}
+  for (const elem of str) {   
+      if (obj[elem]!=undefined) {
+          obj[elem]+=1;
+          
+      }else{
+          obj[elem] = 0;
+      }
+  }
+  let count = 0
+  for (const key in obj) {
+      if (obj[key]>0) {
+          count++;
+      }
+      
+  }
+  return count
+}
+
+//  console.log(duplicateCount("Indivisibility"));
+
+
