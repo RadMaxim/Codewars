@@ -47,4 +47,16 @@ function duplicateCount(text){
 
 //  console.log(duplicateCount("Indivisibility"));
 
+/**
+ * @param {character[]} s
+ * @return {void} Do not return anything, modify s in-place instead.
+ */
+var reverseString = function(s) {
+    if (s.length==0) {
+        return s
+    }
+    return [s[s.length-1],...reverseString(s.splice(0, s.length-1))]
+
+};
+console.log(reverseString("hello".split("")));
 
