@@ -20,3 +20,7 @@
 ### addBinary
 
 ![addBinary](./imgCodewars/addBinary.png)
+
+
+### validatePIN
+![validatePIN](./imgCodewars/validatePIN.png)

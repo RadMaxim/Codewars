@@ -65,4 +65,18 @@ function addBinary(a,b) {
     
 
 }
-addBinary(5,9)
+// addBinary(5,9)
+
+
+function validatePIN (pin) {
+    if (String(pin).length!=4 && String(pin).length!=6) {
+        return false;
+    }
+    if (String(pin).replaceAll(/[0-9]/g, "").length!=0) {
+        return false;
+    }
+    return true
+  }
+console.log(validatePIN("123"));
+
+  
