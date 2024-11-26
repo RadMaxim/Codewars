@@ -58,5 +58,11 @@ var reverseString = function(s) {
     return [s[s.length-1],...reverseString(s.splice(0, s.length-1))]
 
 };
-console.log(reverseString("hello".split("")));
+// console.log(reverseString("hello".split("")));
+function addBinary(a,b) {
+    let res = (a+b).toString(2);
+    return res;
+    
 
+}
+addBinary(5,9)

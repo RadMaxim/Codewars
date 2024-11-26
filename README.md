@@ -16,3 +16,7 @@
 ### reverseString
 
 ![isIsogram](./imgCodewars/reverseString.png)
+
+### addBinary
+
+![addBinary](./imgCodewars/addBinary.png)
