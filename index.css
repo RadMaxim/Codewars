@@ -140,4 +140,11 @@ input:valid {
   70% {
     background-color: rgba(255, 147, 147, 0.055);
   }
+}
+#right_section:has(div) .isEmpty {
+  display: none;
+}
+
+#right_section:not(div) .isEmpty {
+  display: block;
 }/*# sourceMappingURL=index.css.map */

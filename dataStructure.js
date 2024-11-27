@@ -70,8 +70,11 @@ class Node {
       let allElem = document.getElementById("right_section")
       let res = ``
       let current = this.head;
-    //   const result = [];
+      console.log(current);
+      
       while (current) {
+        console.log(current.value);
+        
         res+=`<div class="elem"><p>${current.value.name}</p>
         <p>${current.value.currentTime}</p>
         </div>`
@@ -81,8 +84,18 @@ class Node {
       console.log(res);
       
       allElem.innerHTML = res;
-    //   console.log(result.join(' <-> '));
-    }
+      let allElement =Array.from(document.getElementsByClassName("elem"))
+      allElement.forEach((elem)=>{
+        elem.addEventListener("click", (e)=>{
+          e.target.parentNode.remove();
+          
+        })
+      })
+      
+        
+      }
+    
+    
     getAt(index) {
         if (index < 0 || index >= this.size) return null;
       
@@ -132,7 +145,7 @@ window.addEventListener('load',()=>{
             currentTime: new Date().toTimeString()
         })
         
-        // console.log(list);
+        console.log(list);
         list.printList()
         console.log(list.removeLast());
          
