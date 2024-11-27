@@ -77,6 +77,6 @@ function validatePIN (pin) {
     }
     return true
   }
-console.log(validatePIN("123"));
+// console.log(validatePIN("123"));
 
   

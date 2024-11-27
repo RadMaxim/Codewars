@@ -7,153 +7,20 @@
   font-family: font1;
   src: url("./fonts/Caveat/Caveat-VariableFont_wght.ttf");
 }
-input, select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+body{
+  background: rgb(221, 221, 255);
+  height: 100vh;
 }
-body {
-  display: -ms-grid;
-  background: -webkit-linear-gradient(0.25turn, rgba(78, 64, 64, 0.8), rgba(248, 252, 11, 0.8)); /* Safari 5.1 - 6.0 */
-  background: -moz-linear-gradient(0.25turn, rgba(78, 64, 64, 0.8), rgba(248, 252, 11, 0.8)); /* FF 3.6 - 15 */
-  background: -o-linear-gradient(0.25turn, rgba(78, 64, 64, 0.8), rgba(248, 252, 11, 0.8)); /* Opera 11.1 - 12.0 */
-  
+main{
+  height: 100%;
 }
-
-header, main {
-  display: -webkit-box; 
-  display: -moz-box; 
-  display: -ms-flexbox; 
-  display: -webkit-flex; 
-}
-
-h1,
-p,
-span,
-label {
-  user-select: none;
-  font-family: "font1", Courier, monospace;
-  text-wrap: balance;
-}
-@mixin positionElement() {
+@mixin posElem(){
   display: flex;
   flex-direction: column;
-}
-$wColumn: 60vw;
-@mixin borderElement() {
-  border: 0.1px solid black;
-}
-body {
-  background: linear-gradient(
-    0.25turn,
-    rgba(78, 64, 64, 0.8),
-    rgba(248, 252, 11, 0.8)
-  );
-  background-size: cover;
-  display: grid;
   justify-content: center;
-  grid-template-rows: 25vh 75vh;
-  grid-template-columns: $wColumn;
-  grid-template-areas: "header" "main";
-
-  header {
-    @include positionElement();
-    align-items: center;
-    grid-area: header;
-    text-align: center;
-    .header_container {
-      padding-top: 50px;
-      width: 90%;
-
-      h1 {
-        margin-bottom: 20px;
-        font-size: 32px;
-      }
-      p {
-        font-size: 16px;
-      }
-      span {
-        text-decoration: underline;
-        font-size: 16px;
-      }
-    }
-  }
-  main {
-    display: flex;
-    justify-content: center;
-    grid-area: main;
-    div {
-      @include positionElement();
-      text-align: center;
-      align-items: center;
-    }
-
-    form {
-      width: 80%;
-      @include positionElement();
-      gap: 20px;
-      div {
-        @include positionElement();
-        label {
-          font-size: 30px;
-        }
-        input,
-        select {
-          width: 100%;
-          text-indent: 20px;
-          height: 40px;
-          outline: none;
-          border: none;
-          border-radius: 10px;
-          &::placeholder {
-            color: rgb(120, 120, 120);
-          }
-        }
-      }
-    }
-  }
-  footer {
-    grid-area: footer;
-  }
+  align-items: center;
 }
-@media (max-width: 767px) {
-  $wColumn: 95vw;
-  h1 {
-    font-size: 24px;
-    margin-bottom: 15px;
-  }
-  p {
-    font-size: 12px;
-  }
-  body {
-    grid-template-columns: $wColumn;
-    grid-template-rows: 200px 600px;
-    header {
-      .header_container {
-        padding-top: 10px;
-        width: 95%;
-        text-align: center;
-      }
-    }
-    main {
-      form {
-        width: 90%;
-      }
-    }
-  }
-}
-input[type="submit"] {
-  background: rgba(248, 252, 11, 0.8);
-  cursor: pointer;
-  outline: none;
-  border: none;
-  border-radius: 10px;
-  height: 40px;
-  position: relative;
-  &:hover {
-    background: rgba(248, 252, 11, 0.9);
-  }
-}
+
 
 input:invalid {
   border: 2px solid red;
@@ -161,8 +28,117 @@ input:invalid {
 input:valid {
   border: 2px solid green;
 }
-section {
-  background-color: rgba(255, 255, 255, 0.8);
+.main_container{
+  height: 100%;
+  
+  display: grid;
+  justify-content: space-around;
+  grid-template-columns: 40% 40%;
+  grid-template-rows: 100%;
+  grid-template-areas: "left right";
+  #left_section{
+    grid-area: left;
+  }
+  #right_section{
+    grid-area: right;
+  }
+}
+#nameId{
+  width: 200px;
+  border: none;
+  outline: none;
+  text-indent: 20px;
+  height: 40px;
   border-radius: 10px;
+}
+#add{
+  width: 100px;
+  height: 40px;
+  border-radius: 10px;
+  position: relative;
+  outline: none;
+  border: none;
+  overflow: hidden;
+  background-color: rgb(155, 155, 255);
+  cursor: pointer;
+  &::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: blue;
+    left: -100%;
+    top: 0;
+    transition: .15s ease-in-out left;
+  }
+  &:hover::before{
+    left: 0;
+  }
+  &::after{
+    position: absolute;
+    content: "Add user";
+    top: 0;
+    line-height: 40px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    color: rgb(255, 255, 255);
+  }
+
+}
+#left_section{
+  @include posElem();
+  form{
+    @include posElem();
+    gap: 10px;
+
+  }
+}
+#right_section{
+  padding: 30px 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+.elem{
+  height: 70px;
+  background-color: rgb(70, 255, 42);
+  color: rgb(255, 255, 255);
+  width: 70%;
   padding: 10px;
+}
+// .elem:nth-last-child(1){
+//   background-color: rgb(255, 147, 147);
+// }
+.elem:nth-child(1){
+  animation:first 1s infinite ;
+  color: black;
+ 
+}
+.elem:nth-child(10){
+  animation:last 1s infinite ;
+  color: black;
+ 
+}
+@keyframes first {
+  0%, 100%{
+    background-color: rgb(255, 247, 0);
+
+  }
+  70%{
+    background-color: rgba(255, 251, 125, 0.203);
+
+  }
+}
+@keyframes last {
+  0%, 100%{
+    background-color: rgb(255, 147, 147);
+
+  }
+  70%{
+    background-color: rgba(255, 147, 147, 0.055);
+
+  }
 }
